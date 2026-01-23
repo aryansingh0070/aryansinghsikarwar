@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Cost</title>
+</head>
+<body>
+
+    <p>Enter Price:</p>
+    <input type="number" id="price">
+
+    <p>Enter Quantity:</p>
+    <input type="number" id="quantity">
+
+    <br><br>
+    <button onclick="calculate()">Calculate Total</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateTotal(price, quantity) {
+            return price * quantity;
+        }
+
+        function calculate() {
+            var p = document.getElementById("price").value;
+            var q = document.getElementById("quantity").value;
+            var total = calculateTotal(p, q);
+            document.getElementById("result").innerHTML =
+                "Total Cost: " + total;
+        }
+    </script>
+
+</body>
+</html>

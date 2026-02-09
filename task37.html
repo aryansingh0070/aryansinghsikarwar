@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Booking Form</title>
+
+  <script>
+    function validateBookingForm() {
+
+      // Guest Name validation
+      var guestName = document.getElementById("guestName").value.trim();
+      if (guestName === "") {
+        alert("Please enter guest name.");
+        return false;
+      }
+
+      // Contact Number validation
+      var contact = document.getElementById("contact").value.trim();
+      if (contact === "") {
+        alert("Please enter contact number.");
+        return false;
+      }
+
+      // Room Type validation (radio buttons)
+      var roomTypes = document.getElementsByName("roomType");
+      var roomSelected = false;
+      for (var i = 0; i < roomTypes.length; i++) {
+        if (roomTypes[i].checked) {
+          roomSelected = true;
+          break;
+        }
+      }
+      if (!roomSelected) {
+        alert("Please select a room type.");
+        return false;
+      }
+
+      // Additional Services validation (checkboxes)
+      var services = document.getElementsByName("service");
+      var serviceSelected = false;
+      for (var i = 0; i < services.length; i++) {
+        if (services[i].checked) {
+          serviceSelected = true;
+          break;
+        }
+      }
+      if (!serviceSelected) {
+        alert("Please select at least one additional service.");
+        return false;
+      }
+
+      // Terms & Conditions validation
+      var terms = document.getElementById("terms");
+      if (!terms.checked) {
+        alert("Please accept the terms and conditions.");
+        return false;
+      }
+
+      // All validations passed
+      alert("Hotel booking submitted successfully!");
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+
+  <h2>Hotel Booking Form</h2>
+
+  <form onsubmit="return validateBookingForm()">
+
+    <label>Guest Name:</label><br>
+    <input type="text" id="guestName"><br><br>
+
+    <label>Contact Number:</label><br>
+    <input type="text" id="contact"><br><br>
+
+    <label>Room Type:</label><br>
+    <input type="radio" name="roomType" value="Single"> Single  
+    <input type="radio" name="roomType" value="Double"> Double  
+    <input type="radio" name="roomType" value="Suite"> Suite
+    <br><br>
+
+    <label>Additional Services:</label><br>
+    <input type="checkbox" name="service" value="Breakfast"> Breakfast  
+    <input type="checkbox" name="service" value="Airport Pickup"> Airport Pickup  
+    <input type="checkbox" name="service" value="Wi-Fi"> Wi-Fi
+    <br><br>
+
+    <input type="checkbox" id="terms">
+    <label>I agree to the terms and conditions</label>
+    <br><br>
+
+    <input type="submit" value="Book Now">
+
+  </form>
+
+</body>
+</html>

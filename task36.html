@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Examination Registration</title>
+
+  <script>
+    function validateForm() {
+      // Name validation
+      var name = document.getElementById("name").value.trim();
+      if (name === "") {
+        alert("Please enter your name.");
+        return false;
+      }
+
+      // Email validation
+      var email = document.getElementById("email").value.trim();
+      if (email === "") {
+        alert("Please enter your email.");
+        return false;
+      }
+
+      // Gender validation
+      var genders = document.getElementsByName("gender");
+      var genderSelected = false;
+      for (var i = 0; i < genders.length; i++) {
+        if (genders[i].checked) {
+          genderSelected = true;
+          break;
+        }
+      }
+      if (!genderSelected) {
+        alert("Please select your gender.");
+        return false;
+      }
+
+      // Subject validation
+      var subjects = document.getElementsByName("subject");
+      var subjectChecked = false;
+      for (var i = 0; i < subjects.length; i++) {
+        if (subjects[i].checked) {
+          subjectChecked = true;
+          break;
+        }
+      }
+      if (!subjectChecked) {
+        alert("Please select at least one subject.");
+        return false;
+      }
+
+      // Declaration validation
+      var declaration = document.getElementById("declaration");
+      if (!declaration.checked) {
+        alert("Please accept the declaration.");
+        return false;
+      }
+
+      // All validations passed
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+
+  <h2>Online Examination Registration Form</h2>
+
+  <form onsubmit="return validateForm()">
+
+    <label>Student Name:</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" id="email"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other
+    <br><br>
+
+    <label>Subjects Interested:</label><br>
+    <input type="checkbox" name="subject" value="Maths"> Maths
+    <input type="checkbox" name="subject" value="Science"> Science
+    <input type="checkbox" name="subject" value="English"> English
+    <br><br>
+
+    <input type="checkbox" id="declaration">
+    <label>I hereby declare that the information given is correct.</label>
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+  </form>
+
+</body>
+</html>

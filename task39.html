@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        /* Highlight focused field */
+        input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form>
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Username">
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+
+    // When user presses Enter inside username field
+    username.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && username.value.trim() !== "") {
+            event.preventDefault(); // Prevent form submit
+            password.focus();
+        }
+    });
+
+    // When username loses focus and has content
+    username.addEventListener("blur", function() {
+        if (username.value.trim() !== "") {
+            password.focus();
+        }
+    });
+</script>
+
+</body>
+</html>

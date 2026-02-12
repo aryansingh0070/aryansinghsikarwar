@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Registration Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 320px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input.valid {
+            border-color: green;
+        }
+
+        input.invalid {
+            border-color: red;
+        }
+
+        .icon {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            font-size: 16px;
+        }
+
+        .error {
+            font-size: 13px;
+            color: red;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Register</h2>
+    <form id="form">
+        
+        <div class="input-group">
+            <input type="text" id="email" placeholder="Email">
+            <span class="icon" id="emailIcon"></span>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+            <div class="error" id="passwordError"></div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const emailIcon = document.getElementById("emailIcon");
+    const passwordError = document.getElementById("passwordError");
+    const form = document.getElementById("form");
+
+    let isEmailValid = false;
+    let isPasswordValid = false;
+
+    // Email validation
+    email.addEventListener("input", function() {
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (email.value === "") {
+            email.classList.remove("valid", "invalid");
+            emailIcon.textContent = "";
+            isEmailValid = false;
+        } 
+        else if (email.value.match(emailPattern)) {
+            email.classList.add("valid");
+            email.classList.remove("invalid");
+            emailIcon.textContent = "✔";
+            emailIcon.style.color = "green";
+            isEmailValid = true;
+        } 
+        else {
+            email.classList.add("invalid");
+            email.classList.remove("valid");
+            emailIcon.textContent = "✖";
+            emailIcon.style.color = "red";
+            isEmailValid = false;
+        }
+    });
+
+    // Password validation
+    password.addEventListener("input", function() {
+        const value = password.value;
+
+        const hasLength = value.length >= 8;
+        const hasUpper = /[A-Z]/.test(value);
+        const hasLower = /[a-z]/.test(value);
+        const hasNumber = /[0-9]/.test(value);
+
+        if (value === "") {
+            password.classList.remove("valid", "invalid");
+            passwordError.textContent = "";
+            isPasswordValid = false;
+        }
+        else if (hasLength && hasUpper && hasLower && hasNumber) {
+            password.classList.add("valid");
+            password.classList.remove("invalid");
+            passwordError.textContent = "Strong password ✔";
+            passwordError.classList.add("success");
+            isPasswordValid = true;
+        } 
+        else {
+            password.classList.add("invalid");
+            password.classList.remove("valid");
+            passwordError.classList.remove("success");
+            passwordError.textContent = 
+                "Password must be at least 8 characters and include uppercase, lowercase, and a number.";
+            isPasswordValid = false;
+        }
+    });
+
+    // Prevent submission if invalid
+    form.addEventListener("submit", function(e) {
+        if (!isEmailValid || !isPasswordValid) {
+            e.preventDefault();
+            alert("Plea

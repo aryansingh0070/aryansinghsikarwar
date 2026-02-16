@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Overlapping Gallery Z-Index</title>
+<style>
+  body {
+    margin: 0;
+    padding: 60px;
+    background: #f5f7fa;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+
+  .gallery {
+    position: relative;
+    width: 500px;
+    height: 350px;
+  }
+
+  .gallery img {
+    position: absolute;
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Initial stacking */
+  .img1 { top: 40px; left: 40px; z-index: 1; }
+  .img2 { top: 80px; left: 120px; z-index: 2; }
+  .img3 { top: 120px; left: 200px; z-index: 3; }
+</style>
+</head>
+<body>
+
+<div class="gallery">
+  <img src="https://picsum.photos/id/1015/400/300" class="img1" data-original="1" />
+  <img src="https://picsum.photos/id/1025/400/300" class="img2" data-original="2" />
+  <img src="https://picsum.photos/id/1035/400/300" class="img3" data-original="3" />
+</div>
+
+<script>
+  const images = document.querySelectorAll('img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      // Reset all images to their original z-index
+      images.forEach(other => {
+        other.style.zIndex = other.dataset.original;
+      });
+
+      // Bring clicked image to front
+      img.style.zIndex = 10;
+    });
+  });
+</script>
+
+</body>
+</html>

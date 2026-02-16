@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Image Caption Overlay</title>
+<style>
+  body {
+    margin: 0;
+    padding: 40px;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-container {
+    position: relative;
+    width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  .image-container img {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    z-index: 2;
+    box-sizing: border-box;
+  }
+
+  .caption h3 {
+    margin: 0 0 5px 0;
+  }
+
+  .caption p {
+    margin: 0;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="image-container">
+  <img src="https://picsum.photos/800/500" alt="Sample Landscape" />
+  <div class="caption">
+    <h3>Beautiful Landscape</h3>
+    <p>This caption appears above the image using a higher z-index.</p>
+  </div>
+</div>
+
+</body>
+</html>

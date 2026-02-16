@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Card Tooltip Z-Index Demo</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f2f4f8;
+    padding: 60px;
+  }
+
+  .container {
+    position: relative;
+    width: 600px;
+    height: 300px;
+  }
+
+  .card {
+    position: relative;
+    z-index: 10;
+    width: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .tooltip {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #333;
+    color: white;
+    font-size: 14px;
+    white-space: nowrap;
+    display: none;
+    z-index: 20;
+  }
+
+  /* Overlapping positioning */
+  .card:nth-child(1) { position: absolute; top: 50px; left: 50px; }
+  .card:nth-child(2) { position: absolute; top: 90px; left: 150px; }
+  .card:nth-child(3) { position: absolute; top: 130px; left: 250px; }
+</style>
+</head>
+<body>
+
+<h2>Product Cards with Hover Tooltip (Z-Index Demo)</h2>
+
+<div class="container">
+  <div class="card">
+    <div class="tooltip">High quality headphones</div>
+    <h3>Headphones</h3>
+    <p>$199</p>
+  </div>
+
+  <div class="card">
+    <div class="tooltip">Latest smartwatch edition</div>
+    <h3>Smartwatch</h3>
+    <p>$299</p>
+  </div>
+
+  <div class="card">
+    <div class="tooltip">Ergonomic wireless mouse</div>
+    <h3>Wireless Mouse</h3>
+    <p>$59</p>
+  </div>
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    const tooltip = card.querySelector('.tooltip');
+
+    card.addEventListener('mouseenter', () => {
+      tooltip.style.display = 'block';
+      tooltip.style.zIndex = 999; // Ensure tooltip appears above overlapping cards
+    });
+
+    card.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

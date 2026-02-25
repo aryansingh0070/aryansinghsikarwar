@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Hide Paragraph</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#toggleBtn").click(function() {
+                $("#myPara").toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <button id="toggleBtn">Show / Hide Paragraph</button>
+    
+    <p id="myPara">
+        Yeh ek simple paragraph hai jo button click karne par hide aur show hoga.
+    </p>
+
+</body>
+</html>

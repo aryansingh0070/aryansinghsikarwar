@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Task List</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+
+            // Change first item's text to "Updated"
+            $("li:first").text("Updated");
+
+            // Append new item on button click
+            $("#addBtn").click(function() {
+                $("ul").append("<li>New Task</li>");
+            });
+
+            // Toggle completed class on li click (works for new items too)
+            $("ul").on("click", "li", function() {
+                $(this).toggleClass("completed");
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+    <h2>Task List</h2>
+
+    <ul>
+        <li>Task 1</li>
+        <li>Task 2</li>
+        <li>Task 3</li>
+    </ul>
+
+    <button id="addBtn">Add New Task</button>
+
+</body>
+</html>

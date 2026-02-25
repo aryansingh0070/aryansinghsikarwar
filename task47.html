@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple jQuery Gallery</title>
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #mainImage {
+            width: 400px;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+
+        .thumbnail {
+            width: 120px;
+            height: 80px;
+            cursor: pointer;
+            margin: 5px;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover {
+            border: 2px solid #333;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+
+            $(".thumbnail").click(function() {
+                var newImage = $(this).attr("src");
+
+                $("#mainImage").fadeOut(300, function() {
+                    $(this).attr("src", newImage).fadeIn(300);
+                });
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+    <h2>Simple Image Gallery</h2>
+
+    <!-- Main Image -->
+    <img id="mainImage" src="https://picsum.photos/id/1015/400/250">
+
+    <br>
+
+    <!-- Thumbnails -->
+    <img class="thumbnail" src="https://picsum.photos/id/1015/400/250">
+    <img class="thumbnail" src="https://picsum.photos/id/1016/400/250">
+    <img class="thumbnail" src="https://picsum.photos/id/1018/400/250">
+
+</body>
+</html>

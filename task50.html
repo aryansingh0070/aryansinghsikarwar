@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Fade on Hover</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #container {
+            width: 300px;
+        }
+
+        #container img {
+            width: 100%;
+            transition: opacity 0.3s;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#container img").mouseenter(function() {
+                $(this).css("opacity", "0.5");
+            });
+
+            $("#container img").mouseleave(function() {
+                $(this).css("opacity", "1");
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+    <div id="container">
+        <p>This is a sample image. Hover over it to see the fade effect.</p>
+        <img src="https://picsum.photos/300/200" alt="Sample Image">
+    </div>
+
+</body>
+</html>

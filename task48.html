@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highlight Paragraphs</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .highlight {
+            background: lightblue;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+
+            // Add highlight class to both paragraphs on page load
+            $("p").addClass("highlight");
+
+            // Toggle highlight class when paragraph is clicked
+            $("p").click(function() {
+                $(this).toggleClass("highlight");
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+    <p>This is the first paragraph.</p>
+    <p>This is the second paragraph.</p>
+
+</body>
+</html>

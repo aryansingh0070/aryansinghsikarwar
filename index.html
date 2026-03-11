@@ -1,19 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>JavaScript Example</title>
+
+<meta charset="UTF-8">
+<title>Divide & Conquer Visualizer</title>
+
+<link rel="stylesheet" href="css/main.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body>
 
-    <p id="para">Click the button to change this text.</p>
+<div class="app">
 
-    <button onclick="changeText()">Click Here</button>
+<header class="app-header">
 
-    <script>
-        function changeText() {
-            document.getElementById("para").innerHTML = "Welcome to JavaScript!";
-        }
-    </script>
+<h1>Divide & Conquer Algorithm Visualizer</h1>
+
+<p>Merge Sort • Quick Sort • Binary Search • Closest Pair</p>
+
+</header>
+
+<main class="app-main">
+
+<section class="controls">
+
+<label>Algorithm</label>
+
+<select id="algorithmSelect">
+
+<option value="merge">Merge Sort</option>
+<option value="quick">Quick Sort</option>
+<option value="binary">Binary Search</option>
+<option value="closest">Closest Pair</option>
+
+</select>
+
+<input id="arrayInput" placeholder="Enter array (example: 5,3,8,2,9)">
+
+<input id="targetInput" placeholder="Target (Binary Search only)">
+
+<input id="pointsInput" placeholder="Points (example: 1:2,3:4,5:6)">
+
+<div class="buttons-row">
+
+<button id="generateBtn">Generate Tree</button>
+
+<button id="prevStepBtn">◀ Prev</button>
+
+<button id="nextStepBtn">Next ▶</button>
+
+<button id="resetBtn">Reset</button>
+
+</div>
+
+<div id="explainBox"></div>
+
+<div class="graph-panel">
+
+<canvas id="complexityChart"></canvas>
+
+</div>
+
+</section>
+
+<section class="visual-section">
+
+<svg id="treeSvg"></svg>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="js/algorithms.js"></script>
+<script src="js/tree.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

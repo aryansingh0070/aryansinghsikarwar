@@ -2,6 +2,7 @@
 
 <html>
   <head>
+    <meta charset="UTF-8" />
     <title>React App</title>
 
 ```
@@ -17,11 +18,11 @@
 
 ```
 <script>
-  const e = React.createElement;
-
   const root = ReactDOM.createRoot(document.getElementById("root"));
 
-  root.render(e("h1", null, "Hello World 👋 Welcome"));
+  root.render(
+    React.createElement("h1", null, "Hello World 👋 Welcome")
+  );
 </script>
 ```
 

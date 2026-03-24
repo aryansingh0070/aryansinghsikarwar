@@ -4,24 +4,25 @@
   <head>
     <meta charset="UTF-8" />
     <title>React App</title>
-
-```
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-```
-
   </head>
 
   <body>
     <div id="root"></div>
 
 ```
+<!-- React CDN -->
 <script>
-  const root = ReactDOM.createRoot(document.getElementById("root"));
+  document.write('<script src="https://unpkg.com/react@18/umd/react.development.js"><\\/script>');
+  document.write('<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\\/script>');
+</script>
 
-  root.render(
-    React.createElement("h1", null, "Hello World 👋 Welcome")
-  );
+<script>
+  setTimeout(() => {
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(
+      React.createElement("h1", null, "Hello World 👋 Welcome")
+    );
+  }, 500);
 </script>
 ```
 

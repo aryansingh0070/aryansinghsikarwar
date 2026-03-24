@@ -9,20 +9,22 @@
   <body>
     <div id="root"></div>
 
-<!-- React CDN -->
-<script>
-  document.write('<script src="https://unpkg.com/react@18/umd/react.development.js"><\\/script>');
-  document.write('<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\\/script>');
-</script>
+```
+<!-- React CDN load -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
+<!-- Render after load -->
 <script>
-  setTimeout(() => {
+  window.onload = function () {
     const root = ReactDOM.createRoot(document.getElementById("root"));
+
     root.render(
       React.createElement("h1", null, "Hello World 👋 Welcome")
     );
-  }, 500);
+  };
 </script>
+```
 
   </body>
 </html>

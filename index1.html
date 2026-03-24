@@ -1,34 +1,24 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <title>React Hello World</title>
+  <head>
+    <title>React App</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  </head>
 
-  <!-- React CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <body>
+    <div id="root"></div>
 
-  <!-- Babel for JSX -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
+```
+<script>
+  const root = ReactDOM.createRoot(document.getElementById("root"));
 
-<body>
-
-<div id="root"></div>
-
-<script type="text/babel">
-
-function App() {
-  return (
-    <div style={{textAlign: "center", marginTop: "50px"}}>
-      <h1>Hello World... Welcome.</h1>
-    </div>
+  root.render(
+    React.createElement("h1", null, "Hello World 👋 Welcome")
   );
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
-
 </script>
+```
 
-</body>
+  </body>
 </html>

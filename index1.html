@@ -3,8 +3,13 @@
 <html>
   <head>
     <title>React App</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+```
+<!-- React CDN -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+```
+
   </head>
 
   <body>
@@ -15,7 +20,11 @@
   const root = ReactDOM.createRoot(document.getElementById("root"));
 
   root.render(
-    React.createElement("h1", null, "Hello World 👋 Welcome")
+    React.createElement(
+      "h1",
+      null,
+      "Hello World 👋 Welcome"
+    )
   );
 </script>
 ```
